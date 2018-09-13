@@ -13,6 +13,7 @@ import javafx.scene.layout.BorderPane;
 import randomStuff.Main;
 
 //To change innerList options go to handleFirstListChoice()
+//To change fxml name or path go to changeOptionBoxView()
 
 public class MainViewController {
 	Main main;
@@ -72,7 +73,8 @@ public class MainViewController {
 		String resourcePath = "";
 
 		if (selectedItemFromList.equals("Reverse Text")) {
-			resourcePath = "View/Text/ReverseText/ReverseTextView.fxml";
+			resourcePath = "View/Text/ReverseTextView.fxml";
+			////Random-Stuff/src/randomStuff/View/Text/ReverseTextView.fxml
 		} else {
 			return;
 		}
