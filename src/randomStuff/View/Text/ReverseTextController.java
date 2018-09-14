@@ -1,5 +1,9 @@
 package randomStuff.View.Text;
 
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -16,6 +20,9 @@ public class ReverseTextController {
 	@FXML // Second text area (output)
 	private TextArea outputTextArea;
 
+	@FXML // Copy to clipboard button
+	private Button copyToClipboardButton;
+	
 	@FXML
 	private ImageView processingImage;
 
@@ -54,5 +61,12 @@ public class ReverseTextController {
 		};
 
 		thread.start();
+	}
+	
+	@FXML
+	private void onCopyToClipboard() {
+		StringSelection stringSelection = new StringSelection(outputTextArea.getText());
+		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+		clipboard.setContents(stringSelection, null);
 	}
 }

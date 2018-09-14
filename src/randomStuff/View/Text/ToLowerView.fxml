@@ -35,6 +35,11 @@
                </children>
             </HBox>
             <TextArea fx:id="outputTextArea" prefHeight="200.0" prefWidth="200.0" wrapText="true" />
+            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="copyToClipboardButton" mnemonicParsing="false" onAction="#onCopyToClipboard" text="Copy to clipboard" />
+               </children>
+            </HBox>
             <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0">
                <children>
                   <ImageView fx:id="processingImage" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />

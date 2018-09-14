@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="randomStuff.View.Text.RandomCaseController">
+<BorderPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="randomStuff.View.Text.SpacedOutController">
    <top>
       <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Random Case">
+            <Label text="Space Out">
                <font>
                   <Font size="36.0" />
                </font>
@@ -31,7 +31,7 @@
             <TextArea fx:id="inputTextArea" prefHeight="200.0" prefWidth="200.0" wrapText="true" />
             <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="ToLowercaseButton" mnemonicParsing="false" onAction="#onRandomCaseButtonClicked" prefHeight="50.0" prefWidth="200.0" text="Random Case" />
+                  <Button fx:id="SpaceOutButton" mnemonicParsing="false" onAction="#onSpaceOutButtonClicked" prefHeight="50.0" prefWidth="200.0" text="Space Out" />
                </children>
             </HBox>
             <TextArea fx:id="outputTextArea" prefHeight="200.0" prefWidth="200.0" wrapText="true" />

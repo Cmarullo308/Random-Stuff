@@ -50,6 +50,7 @@ public class Main extends Application {
 	public static void setOptionsBoxView(BorderPane optionsWindow, String resourcePath) throws IOException {
 		loader = new FXMLLoader();
 		loader.setLocation(Main.class.getResource(resourcePath));
+		Print.pl(resourcePath);
 		BorderPane mainItems = loader.load();
 		
 		optionsWindow.setCenter(mainItems);
