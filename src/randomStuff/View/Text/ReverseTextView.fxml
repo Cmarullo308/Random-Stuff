@@ -10,7 +10,7 @@
 
 <BorderPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="randomStuff.View.Text.ReverseTextController">
    <top>
-      <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" BorderPane.alignment="CENTER">
          <children>
             <Label text="Reverse Text">
                <font>

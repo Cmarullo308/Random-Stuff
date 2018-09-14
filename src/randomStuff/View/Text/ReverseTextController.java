@@ -7,7 +7,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 
 public class ReverseTextController {
-	randomStuff.Main main;
 
 	@FXML // First text area (input)
 	private TextArea inputTextArea;
@@ -24,7 +23,6 @@ public class ReverseTextController {
 	@FXML
 	private void initialize() {
 		processingImage.setVisible(false);
-		Print.pl("off");
 	}
 
 	@FXML
@@ -40,7 +38,6 @@ public class ReverseTextController {
 	@FXML
 	private void onReverseButtonClicked() {
 		processingImage.setVisible(true);
-		Print.pl("On");
 
 		Thread thread;
 
@@ -56,7 +53,7 @@ public class ReverseTextController {
 				processingImage.setVisible(false);
 			}
 		};
-		
+
 		thread.start();
 	}
 }
