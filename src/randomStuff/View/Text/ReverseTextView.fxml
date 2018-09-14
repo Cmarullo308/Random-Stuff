@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -7,11 +8,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="randomStuff.View.Text.ReverseTextController">
    <top>
       <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Reverse Text" />
+            <Label text="Reverse Text">
+               <font>
+                  <Font size="36.0" />
+               </font></Label>
          </children>
       </HBox>
    </top>
@@ -23,13 +27,22 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextArea prefHeight="200.0" prefWidth="200.0" />
+            <TextArea fx:id="inputTextArea" prefHeight="200.0" prefWidth="200.0" wrapText="true" />
             <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Reverse" />
+                  <Button fx:id="reverseButton" mnemonicParsing="false" onMouseClicked="#onReverseButtonClicked" prefHeight="50.0" prefWidth="200.0" text="Reverse" />
                </children>
             </HBox>
-            <TextArea prefHeight="200.0" prefWidth="200.0" />
+            <TextArea fx:id="outputTextArea" prefHeight="200.0" prefWidth="200.0" wrapText="true" />
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0">
+               <children>
+                  <ImageView fx:id="processingImage" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" smooth="false">
+                     <image>
+                        <Image url="@../../../images/Loading.gif" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
          </children>
          <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

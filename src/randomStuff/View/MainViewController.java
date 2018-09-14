@@ -35,13 +35,12 @@ public class MainViewController {
 
 	@FXML
 	private void initialize() {
-		//OuterList
+		// OuterList
 		outerList.setItems(outerListItems);
 		outerList.getSelectionModel().select(0);
 		handleFirstListChoice();
 	}
 
-	
 	/**
 	 * Called when an option from the outter list is selected
 	 */
@@ -49,8 +48,8 @@ public class MainViewController {
 	private void handleFirstListChoice() {
 		String selectedList = outerList.getSelectionModel().getSelectedItem();
 
-		if (selectedList.equals("Text")) {
-			innerListItems = FXCollections.observableArrayList("Reverse Text");
+		if (selectedList.equals("Text")) { // All function under "Text"
+			innerListItems = FXCollections.observableArrayList("Reverse Text", "To Uppercase");
 		} else if (selectedList.equals("Option 2")) {
 			innerListItems = FXCollections.observableArrayList("Test");
 		}
@@ -60,22 +59,35 @@ public class MainViewController {
 
 	/**
 	 * Called when an option from the inner list is selected
+	 * 
 	 * @throws IOException
 	 */
 	@FXML
 	private void handleSecondListChoice() throws IOException {
 		// Print.pl("handleSecondChoice called");
-		changeOptionBoxView(innerList.getSelectionModel().getSelectedItem());
+		changeOptionBoxView();
 	}
 
 	@FXML
-	private void changeOptionBoxView(String selectedItemFromList) throws IOException {
+	private void changeOptionBoxView() throws IOException {
+		String selectedItemFromInnerList = innerList.getSelectionModel().getSelectedItem();
+		String slectedItemFromOuterList = outerList.getSelectionModel().getSelectedItem();
 		String resourcePath = "";
 
-		if (selectedItemFromList.equals("Reverse Text")) {
-			resourcePath = "View/Text/ReverseTextView.fxml";
-			////Random-Stuff/src/randomStuff/View/Text/ReverseTextView.fxml
-		} else {
+		switch (slectedItemFromOuterList) {
+		case "Text": //------------------------------------------Text
+			switch (selectedItemFromInnerList) {
+			case "Reverse Text":
+				resourcePath = "View/Text/ReverseTextView.fxml";
+				break;
+			case "To Uppercase":
+				resourcePath = "View/Text/ToUpperView.fxml";
+				break;
+			default:
+				return;
+			}
+			break;
+		default://----------------------------------------------No outter Choice (Shouldn't happen)
 			return;
 		}
 
