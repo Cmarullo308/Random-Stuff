@@ -1,8 +1,9 @@
 MenuItems
+Chance up uppercase in Random Case
 
 --
 
-first hbox 200 60
+first hbox 200 60  #C0C0C0
 -label 36 font
 
 20 20 20 20

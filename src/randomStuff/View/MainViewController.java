@@ -49,7 +49,7 @@ public class MainViewController {
 		String selectedList = outerList.getSelectionModel().getSelectedItem();
 
 		if (selectedList.equals("Text")) { // All function under "Text"
-			innerListItems = FXCollections.observableArrayList("Reverse Text", "To Uppercase", "To Lower");
+			innerListItems = FXCollections.observableArrayList("Reverse Text", "To Uppercase", "To Lower", "Random Case");
 		} else if (selectedList.equals("Option 2")) {
 			innerListItems = FXCollections.observableArrayList("Test");
 		}
@@ -75,7 +75,7 @@ public class MainViewController {
 		String resourcePath = "";
 
 		switch (slectedItemFromOuterList) {
-		case "Text": //------------------------------------------Text
+		case "Text": // ------------------------------------------Text
 			switch (selectedItemFromInnerList) {
 			case "Reverse Text":
 				resourcePath = "View/Text/ReverseTextView.fxml";
@@ -86,11 +86,15 @@ public class MainViewController {
 			case "To Lower":
 				resourcePath = "View/Text/ToLowerView.fxml";
 				break;
+			case "Random Case":
+				resourcePath = "View/Text/RandomCaseView.fxml";
+				break;
 			default:
 				return;
 			}
 			break;
-		default://----------------------------------------------No outter Choice (Shouldn't happen)
+		default:// ----------------------------------------------No outter
+				// Choice (Shouldn't happen)
 			return;
 		}
 
