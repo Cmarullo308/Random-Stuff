@@ -1,1 +1,29 @@
 MenuItems
+
+--
+
+first hbox 200 60
+-label 36 font
+
+20 20 20 20
+10
+
+Label 24
+
+textarea
+200 200
+
+middle box 200 60
+
+middle button 200 50
+
+textarea
+200 200
+
+-label 24
+
+hbox 200 60
+
+image 50 50
+
+

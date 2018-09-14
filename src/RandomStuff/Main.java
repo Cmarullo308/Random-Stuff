@@ -21,8 +21,8 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		this.primaryStage = primaryStage;
-		this.primaryStage.setTitle("Random Stuff");
+		Main.primaryStage = primaryStage;
+		Main.primaryStage.setTitle("Random Stuff");
 		showMainView();
 		// setOptionsBoxView(); // delete
 	}
