@@ -44,10 +44,10 @@
                            <children>
                               <VBox fx:id="TextVBox" alignment="TOP_CENTER" layoutX="50.0" layoutY="78.0" prefHeight="771.0" prefWidth="150.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <Label text="Label" />
-                                    <ListView fx:id="textConverterList" onMouseClicked="#handleSecondListChoice" prefHeight="200.0" prefWidth="200.0" />
-                                    <Label text="Test" />
-                                    <ListView fx:id="testSecondList" onMouseClicked="#handleSecondListChoice" prefHeight="200.0" prefWidth="200.0" />
+                                    <Label text="Converters" />
+                                    <ListView fx:id="textConverterList" onMouseClicked="#handleTextConverterListChoice" prefHeight="200.0" prefWidth="200.0" />
+                                    <Label text="Line Tools" />
+                                    <ListView prefHeight="200.0" prefWidth="200.0" />
                                  </children>
                               </VBox>
                            </children></AnchorPane>

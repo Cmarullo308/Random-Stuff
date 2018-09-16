@@ -1,5 +1,6 @@
 MenuItems
 Chance up uppercase in Random Case
+Change methods that throw exception
 
 --
 

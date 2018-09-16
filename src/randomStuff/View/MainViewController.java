@@ -25,19 +25,22 @@ public class MainViewController {
 
 	// -------------------------------Text-------------------------------
 	// Converters
-	@FXML private VBox TextVBox;
-	
-	ObservableList<String> textConverterListItems;
+	@FXML
+	private VBox TextVBox;
+
 	@FXML
 	private ListView<String> textConverterList;
-	
-	//------
-	
-	ObservableList<String> testSecondListItems;
+	ObservableList<String> textConverterListItems;
+
+	// ------
+
 	@FXML
-	private ListView<String> testSecondList;
+	private ListView<String> textLineTools;
+	ObservableList<String> textLineToolsItems;
 	// -------------------------------Option2-------------------------------
-	ObservableList<String> test;
+	@FXML
+	private ListView<String> testO2;
+	ObservableList<String> testO2Items;
 
 	@FXML
 	private ListView<String> outerList;
@@ -50,13 +53,10 @@ public class MainViewController {
 
 	@FXML
 	private void initialize() {
-		final double LISTCELLSIZE = 23.15;
-
 		// OuterList
 		outerList.setItems(outerListItems);
-		outerList.getSelectionModel().select(0);
+		outerList.getSelectionModel().select(0); // Selects the Text Category
 		handleFirstListChoice();
-
 	}
 
 	/**
@@ -67,63 +67,85 @@ public class MainViewController {
 		String selectedList = outerList.getSelectionModel().getSelectedItem();
 
 		if (selectedList.equals("Text")) { // All function under "Text"
-			textConverterListItems = FXCollections.observableArrayList("Reverse Text", "AAAAA", "To Uppercase", "To Lower", "Random Case", "Space Out");
+			textConverterListItems = FXCollections.observableArrayList("Reverse Text", "To Uppercase", "To Lower", "Random Case", "Space Out");
 			textConverterList.setPrefHeight(CELL_HEIGHT * textConverterListItems.size());
-			testSecondListItems = FXCollections.observableArrayList("Kek", "Butts");
-			testSecondList.setPrefHeight(CELL_HEIGHT * testSecondListItems.size());
+			textConverterList.setItems(textConverterListItems);
 		} else if (selectedList.equals("Option 2")) {
-			test = FXCollections.observableArrayList("Test");
+			testO2Items = FXCollections.observableArrayList("Test", "AAAAAAAAAA123");
+			testO2.setItems(testO2Items);
 		}
 
-		textConverterList.setItems(textConverterListItems);
 	}
 
 	/**
-	 * Called when an option from the inner list is selected
+	 * Called when an option from the Text/Converters list is selected
 	 * 
 	 * @throws IOException
 	 */
 	@FXML
-	private void handleSecondListChoice() throws IOException {
-		// Print.pl("handleSecondChoice called");
-		changeOptionBoxView();
-	}
+	private void handleTextConverterListChoice() {
+		String resourcePath;
+		String selectedItem = textConverterList.getSelectionModel().getSelectedItem();
 
-	@FXML
-	private void changeOptionBoxView() throws IOException {
-		Print.pl(TextVBox.getSel);
-		String selectedItemFromInnerList = textConverterList.getSelectionModel().getSelectedItem();
-		String slectedItemFromOuterList = outerList.getSelectionModel().getSelectedItem();
-		String resourcePath = "";
-
-		switch (slectedItemFromOuterList) {
-		case "Text": // ------------------------------------------Text
-			switch (selectedItemFromInnerList) {
-			case "Reverse Text":
-				resourcePath = "View/Text/ReverseTextView.fxml";
-				break;
-			case "To Uppercase":
-				resourcePath = "View/Text/ToUpperView.fxml";
-				break;
-			case "To Lower":
-				resourcePath = "View/Text/ToLowerView.fxml";
-				break;
-			case "Random Case":
-				resourcePath = "View/Text/RandomCaseView.fxml";
-				break;
-			case "Space Out":
-				resourcePath = "View/Text/SpaceOutView.fxml";
-				break;
-			default:
-				return;
-			}
+		switch (selectedItem) {
+		case "Reverse Text":
+			resourcePath = "View/Text/ReverseTextView.fxml";
 			break;
-		default:// ----------------------------------------------No outter
-				// Choice (Shouldn't happen)
+		case "To Uppercase":
+			resourcePath = "View/Text/ToUpperView.fxml";
+			break;
+		case "To Lower":
+			resourcePath = "View/Text/ToLowerView.fxml";
+			break;
+		case "Random Case":
+			resourcePath = "View/Text/RandomCaseView.fxml";
+			break;
+		case "Space Out":
+			resourcePath = "View/Text/SpaceOutView.fxml";
+			break;
+		default:
 			return;
 		}
 
-		Main.setOptionsBoxView(OptionsWindow, resourcePath);
+		try {
+			Main.setOptionsBoxView(OptionsWindow, resourcePath);
+		} catch (IOException e) {
+			Print.pl("thrown from \"handleTextConverterListChoice\" in MainViewController");
+			e.printStackTrace();
+		}
+	}
+
+	@FXML
+	private void handleLineToolsListChoice() {
+		String resourcePath;
+		String selectedItem = textConverterList.getSelectionModel().getSelectedItem();
+
+		switch (selectedItem) {
+		case "Reverse Text":
+			resourcePath = "View/Text/ReverseTextView.fxml";
+			break;
+		case "To Uppercase":
+			resourcePath = "View/Text/ToUpperView.fxml";
+			break;
+		case "To Lower":
+			resourcePath = "View/Text/ToLowerView.fxml";
+			break;
+		case "Random Case":
+			resourcePath = "View/Text/RandomCaseView.fxml";
+			break;
+		case "Space Out":
+			resourcePath = "View/Text/SpaceOutView.fxml";
+			break;
+		default:
+			return;
+		}
+
+		try {
+			Main.setOptionsBoxView(OptionsWindow, resourcePath);
+		} catch (IOException e) {
+			Print.pl("thrown from \"handleLineToolsListChoice\" in MainViewController");
+			e.printStackTrace();
+		}
 	}
 
 	@FXML // Calls the quitProgram function in Main

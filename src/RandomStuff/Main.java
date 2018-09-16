@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 	private static Stage primaryStage;
 	private static BorderPane mainLayout;
+	//private static BorderPane secondLayout;
 	static FXMLLoader loader;
 
 	public static void main(String[] args) {
