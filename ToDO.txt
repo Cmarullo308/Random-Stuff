@@ -1,6 +1,7 @@
 MenuItems
 Chance up uppercase in Random Case
 Change methods that throw exception
+make it not reload again after slecting already selected option
 
 --
 
