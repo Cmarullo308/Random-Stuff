@@ -43,16 +43,17 @@ public class Main extends Application {
 
 	/**
 	 * Sets up the options after clicking a lebel in the inner list
+	 * 
 	 * @param optionsWindow
 	 * @param selectedItemFromList
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	public static void setOptionsBoxView(BorderPane optionsWindow, String resourcePath) throws IOException {
 		loader = new FXMLLoader();
 		loader.setLocation(Main.class.getResource(resourcePath));
-		Print.pl(resourcePath);
+		// Print.pl(resourcePath);
 		BorderPane mainItems = loader.load();
-		
+
 		optionsWindow.setCenter(mainItems);
 	}
 

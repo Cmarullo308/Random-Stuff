@@ -3,6 +3,7 @@ package randomStuff.View;
 import java.io.IOException;
 
 import Tools.Print;
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -10,35 +11,52 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import randomStuff.Main;
 
 //To change innerList options go to handleFirstListChoice()
 //To change fxml name or path go to changeOptionBoxView()
 
 public class MainViewController {
-	Main main;
+	final double CELL_HEIGHT = 23.21;
 
+	// Categories
 	ObservableList<String> outerListItems = FXCollections.observableArrayList("Text", "Option 2");
-	ObservableList<String> innerListItems;
-	// Text Options
+
+	// -------------------------------Text-------------------------------
+	// Converters
+	@FXML private VBox TextVBox;
+	
+	ObservableList<String> textConverterListItems;
+	@FXML
+	private ListView<String> textConverterList;
+	
+	//------
+	
+	ObservableList<String> testSecondListItems;
+	@FXML
+	private ListView<String> testSecondList;
+	// -------------------------------Option2-------------------------------
+	ObservableList<String> test;
 
 	@FXML
 	private ListView<String> outerList;
 	@FXML
-	private ListView<String> innerList;
-	@FXML
 	private BorderPane OptionsWindow;
 
-	// Menu bar - File
-	@FXML
+	// -----Menu bar - File-----
+	@FXML // Menu Item exit
 	private MenuItem exit;
 
 	@FXML
 	private void initialize() {
+		final double LISTCELLSIZE = 23.15;
+
 		// OuterList
 		outerList.setItems(outerListItems);
 		outerList.getSelectionModel().select(0);
 		handleFirstListChoice();
+
 	}
 
 	/**
@@ -49,12 +67,15 @@ public class MainViewController {
 		String selectedList = outerList.getSelectionModel().getSelectedItem();
 
 		if (selectedList.equals("Text")) { // All function under "Text"
-			innerListItems = FXCollections.observableArrayList("Reverse Text", "To Uppercase", "To Lower", "Random Case", "Space Out");
+			textConverterListItems = FXCollections.observableArrayList("Reverse Text", "AAAAA", "To Uppercase", "To Lower", "Random Case", "Space Out");
+			textConverterList.setPrefHeight(CELL_HEIGHT * textConverterListItems.size());
+			testSecondListItems = FXCollections.observableArrayList("Kek", "Butts");
+			testSecondList.setPrefHeight(CELL_HEIGHT * testSecondListItems.size());
 		} else if (selectedList.equals("Option 2")) {
-			innerListItems = FXCollections.observableArrayList("Test");
+			test = FXCollections.observableArrayList("Test");
 		}
 
-		innerList.setItems(innerListItems);
+		textConverterList.setItems(textConverterListItems);
 	}
 
 	/**
@@ -70,7 +91,8 @@ public class MainViewController {
 
 	@FXML
 	private void changeOptionBoxView() throws IOException {
-		String selectedItemFromInnerList = innerList.getSelectionModel().getSelectedItem();
+		Print.pl(TextVBox.getSel);
+		String selectedItemFromInnerList = textConverterList.getSelectionModel().getSelectedItem();
 		String slectedItemFromOuterList = outerList.getSelectionModel().getSelectedItem();
 		String resourcePath = "";
 
