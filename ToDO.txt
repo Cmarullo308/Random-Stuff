@@ -2,6 +2,10 @@ MenuItems
 Chance up uppercase in Random Case
 Change methods that throw exception
 make it not reload again after slecting already selected option
+loading gif works on all
+put thread in main
+put all things in thread
+make all input and output boxes same variable name
 
 --
 

@@ -39,7 +39,7 @@ public class TextViewController {
 	@FXML
 	private void initialize() {
 		// Converters
-		textConverterListItems = FXCollections.observableArrayList("Reverse Text", "To Uppercase", "To Lower", "Random Case", "Space Out");
+		textConverterListItems = FXCollections.observableArrayList("Reverse Text", "To Uppercase", "To Lower", "Random Case", "Space Out", "ASCII to Text", "Hexadecimal to Text");
 		textConverterList.setPrefHeight(CELL_HEIGHT * textConverterListItems.size());
 		textConverterList.setItems(textConverterListItems);
 		// Line Tools
@@ -74,7 +74,7 @@ public class TextViewController {
 	 */
 	@FXML
 	private void handleTextConverterListChoice() {
-		String resourcePath;
+		String resourcePath = null;
 		String selectedItem = textConverterList.getSelectionModel().getSelectedItem();
 
 		switch (selectedItem) {
@@ -93,16 +93,18 @@ public class TextViewController {
 		case "Space Out":
 			resourcePath = "View/Text/SpaceOutView.fxml";
 			break;
+		case "ASCII to Text":
+			resourcePath = "View/Text/ASCIIToTextView.fxml";
+			break;
+		case "Hexadecimal to Text":
+			resourcePath = "View/Text/HexadecimalToTextView.fxml";
+			break;
 		default:
+			Print.pl("Default in switch in handleTextConverterListChoice");
 			return;
 		}
 
-		try {
-			Main.setOptionsBoxView(OptionsWindow, resourcePath);
-		} catch (IOException e) {
-			Print.pl("thrown from \"handleTextConverterListChoice\" in MainViewController");
-			e.printStackTrace();
-		}
+		Main.setOptionsBoxView(OptionsWindow, resourcePath);
 	}
 
 	@FXML
@@ -130,11 +132,6 @@ public class TextViewController {
 			return;
 		}
 
-		try {
-			Main.setOptionsBoxView(OptionsWindow, resourcePath);
-		} catch (IOException e) {
-			Print.pl("thrown from \"handleLineToolsListChoice\" in MainViewController");
-			e.printStackTrace();
-		}
+		Main.setOptionsBoxView(OptionsWindow, resourcePath);
 	}
 }

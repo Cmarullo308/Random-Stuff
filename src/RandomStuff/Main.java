@@ -15,6 +15,7 @@ public class Main extends Application {
 	private static Stage primaryStage;
 	private static BorderPane mainLayout;
 	static FXMLLoader loader;
+	public static Thread process;
 
 	public static void main(String[] args) {
 		launch(args);
@@ -66,11 +67,17 @@ public class Main extends Application {
 	 * @param selectedItemFromList
 	 * @throws IOException
 	 */
-	public static void setOptionsBoxView(BorderPane optionsWindow, String resourcePath) throws IOException {
+	public static void setOptionsBoxView(BorderPane optionsWindow, String resourcePath) {
 		loader = new FXMLLoader();
 		loader.setLocation(Main.class.getResource(resourcePath));
-		// Print.pl(resourcePath);
-		BorderPane mainItems = loader.load();
+		//Print.pl(resourcePath);
+		BorderPane mainItems = null;
+		try {
+			mainItems = loader.load();
+		} catch (IOException e) {
+			Print.pl("Here");
+			e.printStackTrace();
+		}
 
 		optionsWindow.setCenter(mainItems);
 	}
