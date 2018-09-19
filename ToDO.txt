@@ -12,6 +12,7 @@ make output boxes not editable
 cancel button
 move text converters category into its own package
 fix error when converting a blank inputtextarea
+text size in textArea boxes
 --
 update string tools in MyFuncs on other thing
 
