@@ -65,6 +65,17 @@ public class MyFuncs {
 
 			return String.valueOf(charArr);
 		}
+
+		public static String addLeadingZeros(String num, int size) {
+			String zeros = "";
+			int zerosNeeded = size - num.length();
+
+			while (zeros.length() < zerosNeeded) {
+				zeros += "0";
+			}
+
+			return zeros + num;
+		}
 	}
 
 	public static class Arrays {

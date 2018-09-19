@@ -13,7 +13,8 @@ import javafx.scene.layout.VBox;
 import randomStuff.Main;
 
 public class TextViewController {
-	final double CELL_HEIGHT = 24.5;
+	final double CONVERTERS_CELL_HEIGHT = 23.5;
+	final double LINETOOLS_CELL_HEIGHT = 24.5;
 	// -------------------------------Text-------------------------------
 	// Converters
 	@FXML
@@ -39,12 +40,13 @@ public class TextViewController {
 	@FXML
 	private void initialize() {
 		// Converters
-		textConverterListItems = FXCollections.observableArrayList("Reverse Text", "To Uppercase", "To Lower", "Random Case", "Space Out", "ASCII to Text", "Hexadecimal to Text");
-		textConverterList.setPrefHeight(CELL_HEIGHT * textConverterListItems.size());
+		textConverterListItems = FXCollections.observableArrayList("Reverse Text", "To Uppercase", "To Lower", "Random Case", "Space Out", "ASCII to Text", "Hexadecimal to Text", "Binary to Text",
+				"Text to Octal", "Text to Morse Code");
+		textConverterList.setPrefHeight(CONVERTERS_CELL_HEIGHT * textConverterListItems.size());
 		textConverterList.setItems(textConverterListItems);
 		// Line Tools
 		textLineToolsItems = FXCollections.observableArrayList("Test");
-		textLineTools.setPrefHeight(CELL_HEIGHT * textLineToolsItems.size());
+		textLineTools.setPrefHeight(LINETOOLS_CELL_HEIGHT * textLineToolsItems.size());
 		textLineTools.setItems(textLineToolsItems);
 	}
 
@@ -99,6 +101,15 @@ public class TextViewController {
 		case "Hexadecimal to Text":
 			resourcePath = "View/Text/HexadecimalToTextView.fxml";
 			break;
+		case "Binary to Text":
+			resourcePath = "View/Text/BinaryToTextView.fxml";
+			break;
+		case "Text to Octal":
+			resourcePath = "View/Text/TextToOctalView.fxml";
+			break;
+		case "Text to Morse Code":
+			resourcePath = "View/Text/TextToMorseCodeView.fxml";
+			break;
 		default:
 			Print.pl("Default in switch in handleTextConverterListChoice");
 			return;
@@ -115,18 +126,6 @@ public class TextViewController {
 		switch (selectedItem) {
 		case "Reverse Text":
 			resourcePath = "View/Text/ReverseTextView.fxml";
-			break;
-		case "To Uppercase":
-			resourcePath = "View/Text/ToUpperView.fxml";
-			break;
-		case "To Lower":
-			resourcePath = "View/Text/ToLowerView.fxml";
-			break;
-		case "Random Case":
-			resourcePath = "View/Text/RandomCaseView.fxml";
-			break;
-		case "Space Out":
-			resourcePath = "View/Text/SpaceOutView.fxml";
 			break;
 		default:
 			return;
