@@ -41,7 +41,7 @@ public class TextViewController {
 	private void initialize() {
 		// Converters
 		textConverterListItems = FXCollections.observableArrayList("Reverse Text", "To Uppercase", "To Lower", "Random Case", "Space Out", "ASCII to Text", "Hexadecimal to Text", "Binary to Text",
-				"Text to Octal", "Text to Morse Code", "Capitalize Words");
+				"Text to Octal", "Text to Morse Code", "Capitalize Words", "Capitalize Sentence");
 		textConverterList.setPrefHeight(CONVERTERS_CELL_HEIGHT * textConverterListItems.size());
 		textConverterList.setItems(textConverterListItems);
 		// Line Tools
@@ -112,6 +112,9 @@ public class TextViewController {
 			break;
 		case "Capitalize Words":
 			resourcePath = "View/Text/CapitalizeWordsView.fxml";
+			break;
+		case "Capitalize Sentence":
+			resourcePath = "View/Text/CapitalizeSentenceView.fxml";
 			break;
 		default:
 			Print.pl("Default in switch in handleTextConverterListChoice");
