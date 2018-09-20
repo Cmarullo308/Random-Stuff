@@ -112,7 +112,6 @@ public class TextToMorseCodeView {
 				return i;
 			}
 		}
-
 		return -1;
 	}
 
