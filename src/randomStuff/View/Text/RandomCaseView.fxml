@@ -44,7 +44,7 @@
                <children>
                   <ImageView fx:id="processingImage" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" visible="false">
                      <image>
-                        <Image url="@../../../images/Loading.gif" />
+                        <Image url="@../../../images/Processing.gif" />
                      </image>
                   </ImageView>
                </children>
