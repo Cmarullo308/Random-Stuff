@@ -1,4 +1,4 @@
-package randomStuff.View.Text;
+package randomStuff.View.Text.Converters;
 
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
@@ -9,13 +9,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 
-public class ToUpperController {
-
+public class SpacedOutController {
 	@FXML // First text area (input)
 	private TextArea inputTextArea;
 
 	@FXML // Reverse Button
-	private Button ToUppercase;
+	private Button SpaceOutButton;
 
 	@FXML // Second text area (output)
 	private TextArea outputTextArea;
@@ -32,16 +31,25 @@ public class ToUpperController {
 	}
 
 	@FXML
-	private void onToUpperButtonClicked() {
-		 processingImage.setVisible(true);
+	private void onSpaceOutButtonClicked() {
+		processingImage.setVisible(true);
 
 		Thread thread;
 
 		thread = new Thread() {
 			@Override
 			public void run() {
-				outputTextArea.setText(inputTextArea.getText().toUpperCase());
-				 processingImage.setVisible(false);
+				String spaceOutText = "";
+				if (inputTextArea.getText().length() > 0) {
+					for (int i = 0; i < inputTextArea.getText().length(); i++) {
+						spaceOutText += inputTextArea.getText().charAt(i) + " ";
+					}
+
+					spaceOutText = spaceOutText.substring(0, spaceOutText.length() - 1);
+
+					outputTextArea.setText(spaceOutText);
+				}
+				processingImage.setVisible(false);
 			}
 		};
 

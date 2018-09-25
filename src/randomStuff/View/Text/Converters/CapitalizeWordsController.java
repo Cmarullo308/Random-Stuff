@@ -1,26 +1,33 @@
-package randomStuff.View.Text;
+package randomStuff.View.Text.Converters;
 
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
-import java.io.File;
+import java.util.Arrays;
 
+import Tools.Print;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.SplitMenuButton;
 import javafx.scene.control.TextArea;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import randomStuff.Main;
 
-public class ToLowerController {
+public class CapitalizeWordsController {
+	@FXML
+	private Label inputTextLabel;
+
 	@FXML // First text area (input)
 	private TextArea inputTextArea;
 
-	@FXML // Reverse Button
-	private Button ToLowercaseButton;
+	@FXML
+	private Button convertButton;
 
 	@FXML // Second text area (output)
 	private TextArea outputTextArea;
-	
+
 	@FXML // Copy to clipboard button
 	private Button copyToClipboardButton;
 
@@ -29,26 +36,36 @@ public class ToLowerController {
 
 	@FXML
 	private void initialize() {
-		
+
+		outputTextArea.setEditable(false);
 	}
 
 	@FXML
-	private void onToLowerButtonClicked() {
+	private void convertButtonClicked() {
 		processingImage.setVisible(true);
 
-		Thread thread;
-
-		thread = new Thread() {
+		Main.process = new Thread() {
 			@Override
 			public void run() {
-				outputTextArea.setText(inputTextArea.getText().toLowerCase());
+				capitalizeWords();
 				processingImage.setVisible(false);
 			}
 		};
 
-		thread.start();
+		Main.process.start();
 	}
-	
+
+	private void capitalizeWords() {
+		String output = "";
+		String[] input = inputTextArea.getText().split(" ");
+
+		for (String word : input) {
+			output += (char) (word.charAt(0) - 32) + word.substring(1, word.length()) + " ";
+		}
+
+		outputTextArea.setText(output.substring(0, output.length() - 1));
+	}
+
 	@FXML
 	private void onCopyToClipboard() {
 		StringSelection stringSelection = new StringSelection(outputTextArea.getText());

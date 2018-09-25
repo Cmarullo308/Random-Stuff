@@ -1,21 +1,22 @@
-package randomStuff.View.Text;
+package randomStuff.View.Text.Converters;
 
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
-import java.util.Arrays;
 
+import Tools.MyFuncs;
 import Tools.Print;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.SplitMenuButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import randomStuff.Main;
 
-public class CapitalizeWordsController {
+public class ReverseWordsController {
+	@FXML
+	private Label functionName;
+
 	@FXML
 	private Label inputTextLabel;
 
@@ -23,7 +24,7 @@ public class CapitalizeWordsController {
 	private TextArea inputTextArea;
 
 	@FXML
-	private Button convertButton;
+	private Button actionButton;
 
 	@FXML // Second text area (output)
 	private TextArea outputTextArea;
@@ -36,7 +37,8 @@ public class CapitalizeWordsController {
 
 	@FXML
 	private void initialize() {
-
+		functionName.setText("Reverse Words");
+		actionButton.setText("Reverse Words");
 		outputTextArea.setEditable(false);
 	}
 
@@ -47,7 +49,7 @@ public class CapitalizeWordsController {
 		Main.process = new Thread() {
 			@Override
 			public void run() {
-				capitalizeWords();
+				reverseWords();
 				processingImage.setVisible(false);
 			}
 		};
@@ -55,14 +57,16 @@ public class CapitalizeWordsController {
 		Main.process.start();
 	}
 
-	private void capitalizeWords() {
+	private void reverseWords() {
+		String[] input = inputTextArea.getText().replace(".", "").split(" ");
 		String output = "";
-		String[] input = inputTextArea.getText().split(" ");
-
-		for (String word : input) {
-			output += (char) (word.charAt(0) - 32) + word.substring(1, word.length()) + " ";
+		
+		MyFuncs.Arrays.reverseArray(input);
+		
+		for(String word : input) {
+			output += word + " ";
 		}
-
+		
 		outputTextArea.setText(output.substring(0, output.length() - 1));
 	}
 

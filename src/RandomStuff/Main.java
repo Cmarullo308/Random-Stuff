@@ -70,7 +70,7 @@ public class Main extends Application {
 	public static void setOptionsBoxView(BorderPane optionsWindow, String resourcePath) {
 		loader = new FXMLLoader();
 		loader.setLocation(Main.class.getResource(resourcePath));
-		//Print.pl(resourcePath);
+		Print.pl(resourcePath);
 		BorderPane mainItems = null;
 		try {
 			mainItems = loader.load();

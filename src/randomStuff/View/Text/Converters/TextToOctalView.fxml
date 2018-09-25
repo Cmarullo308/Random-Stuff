@@ -1,29 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.image.*?>
-<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="randomStuff.View.Text.SpacedOutController">
+<BorderPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="randomStuff.View.Text.Converters.TextToOctalController">
    <top>
       <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Space Out">
+            <Label text="Text to Octal">
                <font>
                   <Font size="36.0" />
-               </font>
-            </Label>
+               </font></Label>
          </children>
       </HBox>
    </top>
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Enter Text">
+            <Label fx:id="inputTextLabel" text="Enter Text">
                <font>
                   <Font size="24.0" />
                </font>
@@ -31,9 +30,13 @@
             <TextArea fx:id="inputTextArea" prefHeight="200.0" prefWidth="200.0" wrapText="true" />
             <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="SpaceOutButton" mnemonicParsing="false" onAction="#onSpaceOutButtonClicked" prefHeight="50.0" prefWidth="200.0" text="Space Out" />
-               </children>
-            </HBox>
+                  <SplitMenuButton fx:id="convertButton" mnemonicParsing="false" onAction="#convertButtonClicked" prefHeight="50.0" prefWidth="200.0" text="SplitMenuButton">
+                    <items>
+                      <MenuItem fx:id="OctalToTextMenuItem" mnemonicParsing="false" onAction="#octalToTextMenuItemClicked" text="Octal Number to Text" />
+                      <MenuItem fx:id="TextToOctalMenuItem" mnemonicParsing="false" onAction="#textToOctaltMenuItemClicked" text="Text to Octal Number" />
+                    </items>
+                  </SplitMenuButton>
+               </children></HBox>
             <TextArea fx:id="outputTextArea" prefHeight="200.0" prefWidth="200.0" wrapText="true" />
             <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
                <children>
@@ -42,9 +45,9 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0">
                <children>
-                  <ImageView fx:id="processingImage" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                  <ImageView fx:id="processingImage" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" smooth="false" visible="false">
                      <image>
-                        <Image url="@../../../images/Processing.gif" />
+                        <Image url="@../../../../images/Processing.gif" />
                      </image>
                   </ImageView>
                </children>

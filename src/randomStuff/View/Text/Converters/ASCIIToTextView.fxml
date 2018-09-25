@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="randomStuff.View.Text.ReverseTextController">
+<BorderPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="randomStuff.View.Text.Converters.ASCIIToTextController">
    <top>
       <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #C0C0C0;" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Reverse Text">
+            <Label text="Text to ASCII">
                <font>
                   <Font size="36.0" />
                </font></Label>
@@ -27,13 +27,17 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextArea fx:id="inputTextArea" prefHeight="200.0" prefWidth="200.0" wrapText="true" />
+            <TextArea fx:id="inputBox" prefHeight="200.0" prefWidth="200.0" wrapText="true" />
             <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="reverseButton" mnemonicParsing="false" onMouseClicked="#onReverseButtonClicked" prefHeight="50.0" prefWidth="200.0" text="Reverse" />
-               </children>
-            </HBox>
-            <TextArea fx:id="outputTextArea" prefHeight="200.0" prefWidth="200.0" wrapText="true" />
+                  <SplitMenuButton fx:id="convertButton" mnemonicParsing="false" onAction="#handleConvertButtonClicked" prefHeight="50.0" prefWidth="200.0" text="SplitMenuButton">
+                    <items>
+                      <MenuItem fx:id="TextToASCIIMenuItem" mnemonicParsing="false" onAction="#handleTextToASCIIMenuItemClicked" text="Text to ASCII Number" />
+                      <MenuItem fx:id="ASCIIToTextMenuItem" mnemonicParsing="false" onAction="#handleASCIIToTextMenuItemClicked" text="ASCII Number to Text" />
+                    </items>
+                  </SplitMenuButton>
+               </children></HBox>
+            <TextArea fx:id="outputBox" prefHeight="200.0" prefWidth="200.0" wrapText="true" />
             <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
                <children>
                   <Button fx:id="copyToClipboardButton" mnemonicParsing="false" onAction="#onCopyToClipboard" text="Copy to clipboard" />
@@ -41,9 +45,9 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0">
                <children>
-                  <ImageView fx:id="processingImage" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" smooth="false">
+                  <ImageView fx:id="processingGif" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" smooth="false" visible="false">
                      <image>
-                        <Image url="@../../../images/Processing.gif" />
+                        <Image url="@../../../../images/Processing.gif" />
                      </image>
                   </ImageView>
                </children>

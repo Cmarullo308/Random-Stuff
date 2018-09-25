@@ -15,7 +15,8 @@ import randomStuff.Main;
 public class TextViewController {
 	final double CONVERTERS_CELL_HEIGHT = 23.5;
 	final double LINETOOLS_CELL_HEIGHT = 24.5;
-	// -------------------------------Text-------------------------------
+	@FXML
+	private BorderPane OptionsWindow;
 	// Converters
 	@FXML
 	private ListView<String> textConverterList;
@@ -26,16 +27,7 @@ public class TextViewController {
 	@FXML
 	private ListView<String> textLineTools;
 	ObservableList<String> textLineToolsItems;
-	// -------------------------------Option2-------------------------------
-	@FXML
-	private ListView<String> testO2;
-	ObservableList<String> testO2Items;
-
-	@FXML
-	private ListView<String> outerList;
-	@FXML
-	private BorderPane OptionsWindow;
-
+	
 	// every 5 - 1.5
 	@FXML
 	private void initialize() {
@@ -81,46 +73,46 @@ public class TextViewController {
 
 		switch (selectedItem) {
 		case "Reverse Text":
-			resourcePath = "View/Text/ReverseTextView.fxml";
+			resourcePath = "View/Text/Converters/ReverseTextView.fxml";
 			break;
 		case "To Uppercase":
-			resourcePath = "View/Text/ToUpperView.fxml";
+			resourcePath = "View/Text/Converters/ToUpperView.fxml";
 			break;
 		case "To Lower":
-			resourcePath = "View/Text/ToLowerView.fxml";
+			resourcePath = "View/Text/Converters/ToLowerView.fxml";
 			break;
 		case "Random Case":
-			resourcePath = "View/Text/RandomCaseView.fxml";
+			resourcePath = "View/Text/Converters/RandomCaseView.fxml";
 			break;
 		case "Space Out":
-			resourcePath = "View/Text/SpaceOutView.fxml";
+			resourcePath = "View/Text/Converters/SpaceOutView.fxml";
 			break;
 		case "ASCII to Text":
-			resourcePath = "View/Text/ASCIIToTextView.fxml";
+			resourcePath = "View/Text/Converters/ASCIIToTextView.fxml";
 			break;
 		case "Hexadecimal to Text":
-			resourcePath = "View/Text/HexadecimalToTextView.fxml";
+			resourcePath = "View/Text/Converters/HexadecimalToTextView.fxml";
 			break;
 		case "Binary to Text":
-			resourcePath = "View/Text/BinaryToTextView.fxml";
+			resourcePath = "View/Text/Converters/BinaryToTextView.fxml";
 			break;
 		case "Text to Octal":
-			resourcePath = "View/Text/TextToOctalView.fxml";
+			resourcePath = "View/Text/Converters/TextToOctalView.fxml";
 			break;
 		case "Text to Morse Code":
-			resourcePath = "View/Text/TextToMorseCodeView.fxml";
+			resourcePath = "View/Text/Converters/TextToMorseCodeView.fxml";
 			break;
 		case "Capitalize Words":
-			resourcePath = "View/Text/CapitalizeWordsView.fxml";
+			resourcePath = "View/Text/Converters/CapitalizeWordsView.fxml";
 			break;
 		case "Capitalize Sentence":
-			resourcePath = "View/Text/CapitalizeSentenceView.fxml";
+			resourcePath = "View/Text/Converters/CapitalizeSentenceView.fxml";
 			break;
 		case "Remove Letter Accents":
-			resourcePath = "View/Text/RemoveLetterAccentsView.fxml";
+			resourcePath = "View/Text/Converters/RemoveLetterAccentsView.fxml";
 			break;
 		case "Reverse Words":
-			resourcePath = "View/Text/ReverseWordsView.fxml";
+			resourcePath = "View/Text/Converters/ReverseWordsView.fxml";
 			break;
 		default:
 			Print.pl("Default in switch in handleTextConverterListChoice");

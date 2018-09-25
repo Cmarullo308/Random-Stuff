@@ -1,4 +1,4 @@
-package randomStuff.View.Text;
+package randomStuff.View.Text.Converters;
 
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
