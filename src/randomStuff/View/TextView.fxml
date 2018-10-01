@@ -16,7 +16,7 @@
                         <Label text="Converters" />
                         <ListView fx:id="textConverterList" onMouseClicked="#handleTextConverterListChoice" prefHeight="200.0" prefWidth="200.0" />
                         <Label text="Line Tools" />
-                        <ListView fx:id="textLineTools" prefHeight="126.0" prefWidth="150.0" />
+                        <ListView fx:id="textLineToolsList" onMouseClicked="#handleLineToolsListChoice" prefHeight="126.0" prefWidth="150.0" />
                      </children>
                   </VBox>
                </children>

@@ -17,17 +17,16 @@ public class TextViewController {
 	final double LINETOOLS_CELL_HEIGHT = 24.5;
 	@FXML
 	private BorderPane OptionsWindow;
-	// Converters
+	// -----Converters-----
 	@FXML
 	private ListView<String> textConverterList;
 	ObservableList<String> textConverterListItems;
 
-	// ------
-
+	// -----Line Tools-----
 	@FXML
-	private ListView<String> textLineTools;
-	ObservableList<String> textLineToolsItems;
-	
+	private ListView<String> textLineToolsList;
+	ObservableList<String> textLineToolsListItems;
+
 	// every 5 - 1.5
 	@FXML
 	private void initialize() {
@@ -37,9 +36,9 @@ public class TextViewController {
 		textConverterList.setPrefHeight(CONVERTERS_CELL_HEIGHT * textConverterListItems.size());
 		textConverterList.setItems(textConverterListItems);
 		// Line Tools
-		textLineToolsItems = FXCollections.observableArrayList("Test");
-		textLineTools.setPrefHeight(LINETOOLS_CELL_HEIGHT * textLineToolsItems.size());
-		textLineTools.setItems(textLineToolsItems);
+		textLineToolsListItems = FXCollections.observableArrayList("Filter Lines");
+		textLineToolsList.setPrefHeight(LINETOOLS_CELL_HEIGHT * textLineToolsListItems.size());
+		textLineToolsList.setItems(textLineToolsListItems);
 	}
 
 	/**
@@ -125,11 +124,11 @@ public class TextViewController {
 	@FXML
 	private void handleLineToolsListChoice() {
 		String resourcePath;
-		String selectedItem = textConverterList.getSelectionModel().getSelectedItem();
+		String selectedItem = textLineToolsList.getSelectionModel().getSelectedItem();
 
 		switch (selectedItem) {
-		case "Reverse Text":
-			resourcePath = "View/Text/ReverseTextView.fxml";
+		case "Filter Lines":
+			resourcePath = "View/Text/LineTools/FilterLinesView.fxml";
 			break;
 		default:
 			return;

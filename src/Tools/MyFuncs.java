@@ -1,7 +1,12 @@
 package Tools;
 
 public class MyFuncs {
-	// Char Class
+	public enum Sort {
+		ASCE, DESC;
+	}
+
+	// ----------Char Class----------
+
 	public static class Chars {
 		public static char switchCase(char c) {
 			if (c >= 65 && c <= 90) { // if Uppercase
@@ -39,7 +44,8 @@ public class MyFuncs {
 
 	}
 
-	// Random Class
+	// ----------Random Class----------
+
 	public static class Random {
 		public static int randomIntBetween(int min, int max) {
 			return new java.util.Random().nextInt(max - min + 1) + min;
@@ -54,6 +60,8 @@ public class MyFuncs {
 					String.format("%." + decimalPoints + "f", min + (max - min) * new java.util.Random().nextDouble()));
 		}
 	}
+
+	// ----------Strings Class----------
 
 	public static class Strings {
 		public static String reverseChars(String str) {
@@ -76,7 +84,126 @@ public class MyFuncs {
 
 			return zeros + num;
 		}
+
+		/**
+		 * Sorts the string array by length
+		 * 
+		 * @param strArr
+		 */
+		public static void sortArrayByLength(String[] strArr, Sort sort) {
+			if (sort == Sort.ASCE) {
+				quickSortASEC(strArr, 0, strArr.length - 1);
+			} else if (sort == Sort.DESC) {
+				quickSortDESC(strArr, 0, strArr.length - 1);
+			}
+		}
+
+		/**
+		 * Quicksorts the String arry by length accending
+		 * 
+		 * @param strArr
+		 * @param low
+		 * @param high
+		 */
+		private static void quickSortASEC(String[] strArr, int low, int high) {
+			int i = low;
+			int j = high;
+			String pivot = strArr[low + (high - low) / 2];
+			while (i <= j) {
+				while (strArr[i].length() < pivot.length()) {
+					i++;
+				}
+				while (strArr[j].length() > pivot.length()) {
+					j--;
+				}
+				if (i <= j) {
+					exchangeNumbers(strArr, i, j);
+					i++;
+					j--;
+				}
+			}
+			if (low < j)
+				quickSortASEC(strArr, low, j);
+			if (i < high)
+				quickSortASEC(strArr, i, high);
+		}
+
+		/**
+		 * Quicksorts the String arry by length decending
+		 * 
+		 * @param strArr
+		 * @param low
+		 * @param high
+		 */
+		private static void quickSortDESC(String[] strArr, int low, int high) {
+			int i = low;
+			int j = high;
+			String pivot = strArr[(low + high) / 2];
+
+			while (i < j) {
+				while (strArr[i].length() > pivot.length()) {
+					i++;
+				}
+				while (strArr[j].length() < pivot.length()) {
+					j--;
+				}
+				if (j >= i) {
+					exchangeNumbers(strArr, i, j);
+					i++;
+					j--;
+				}
+			}
+
+			if (low < j) {
+				quickSortDESC(strArr, low, j);
+			}
+			if (i < high) {
+				quickSortDESC(strArr, i, high);
+			}
+		}
+
+		private static void exchangeNumbers(String[] strArr, int i, int j) {
+			String temp = strArr[i];
+			strArr[i] = strArr[j];
+			strArr[j] = temp;
+		}
+
+		/**
+		 * 
+		 * @param string
+		 *            The string to search
+		 * @param needle
+		 *            What is being searched for in the strinf
+		 * @return True if the substring is found
+		 */
+		public static boolean containsIgnoreCase(String string, String needle) {
+			for (int i = 0; i < string.length() - needle.length() + 1; i++) {
+				if (string.substring(i, i + needle.length()).equalsIgnoreCase(needle)) {
+					return true;
+				}
+			}
+			return false;
+		}
+
+		/**
+		 * 
+		 * @param string
+		 *            The string to search
+		 * @param needle
+		 *            What is being searched for in the strinf
+		 * @return True if the substring is found
+		 */
+		public static boolean contains(String string, String needle) {
+			for (int i = 0; i < string.length() - needle.length() + 1; i++) {
+				if (string.substring(i, i + needle.length()).equals(needle)) {
+					return true;
+				}
+			}
+			return false;
+		}
 	}
+
+	// ----------Arrays Class----------
 
 	public static class Arrays {
 		public static <T> void reverseArray(T[] arr) {

@@ -14,6 +14,7 @@ move text converters category into its own package
 fix error when converting a blank inputtextarea
 text size in textArea boxes
 add menuitems for copy/paste/etc
+Make function names bold in view
 --
 update string tools in MyFuncs on other thing
 

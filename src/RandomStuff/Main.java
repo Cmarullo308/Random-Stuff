@@ -25,6 +25,8 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		Main.primaryStage = primaryStage;
 		Main.primaryStage.setTitle("Random Stuff");
+		Main.primaryStage.setMinWidth(1200);
+		Main.primaryStage.setMinHeight(800);
 		showMainView();
 		// setOptionsBoxView(); // delete
 	}
